@@ -1,0 +1,31 @@
+﻿@model ProductSystem.BLL.ViewModels.CategoryDetailsVM
+
+ 
+<div class="container mt-4">
+
+    <div class="card shadow w-50">
+
+        <div class="card-header bg-info text-white">
+            <h4>Category Details</h4>
+        </div>
+
+        <div class="card-body">
+
+            <h5 class="card-title">
+                @Model.Name
+            </h5>
+
+            <p class="text-muted">
+                Category ID: @Model.Id
+            </p>
+
+            <a asp-action="Index"
+               class="btn btn-outline-primary">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

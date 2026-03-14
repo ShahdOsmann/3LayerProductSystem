@@ -1,0 +1,50 @@
+﻿@model ProductSystem.BLL.ViewModels.CategoryFormVM
+
+ 
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-warning">
+            <h4>Edit Category</h4>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="Edit" method="post">
+
+                <input type="hidden" asp-for="Id"/>
+
+                <div class="mb-3">
+
+                    <label asp-for="Name" class="form-label"></label>
+
+                    <input asp-for="Name"
+                           class="form-control"/>
+
+                    <span asp-validation-for="Name"
+                          class="text-danger"></span>
+
+                </div>
+
+                <button class="btn btn-success">
+                    Save Changes
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

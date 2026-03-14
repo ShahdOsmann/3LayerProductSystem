@@ -1,0 +1,87 @@
+﻿@model ProductSystem.BLL.ViewModels.Account.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-0">Welcome Back</h2>
+                    <small>Sign in to your account</small>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form asp-action="Login" method="post" novalidate>
+
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold"></label>
+                            <input asp-for="Email" class="form-control form-control-lg rounded-3" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-bold"></label>
+                            <input asp-for="Password" class="form-control form-control-lg rounded-3" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="form-check mb-3">
+                            <input asp-for="RememberMe" class="form-check-input" id="rememberCheck" />
+                            <label asp-for="RememberMe" class="form-check-label" for="rememberCheck">
+                                Remember Me
+                            </label>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-success btn-lg rounded-3">
+                                <i class="bi bi-check-circle me-2"></i> Login
+                            </button>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="text-center mb-3">
+                            <p class="mb-1">Don't have an account? <a asp-action="Register">Register</a></p>
+                            <p><a asp-action="ForgetPassword">Forget Password?</a></p>
+                        </div>
+
+                        <!-- OR Divider -->
+                        <div class="d-flex align-items-center mb-3">
+                            <hr class="flex-grow-1">
+                            <span class="mx-2 text-muted small">OR</span>
+                            <hr class="flex-grow-1">
+                        </div>
+
+                        <!-- Google Login -->
+                        <div class="d-grid">
+                            <a asp-controller="Account"
+                               asp-action="ExternalLogin"
+                               asp-route-provider="Google"
+                               class="btn btn-outline-danger btn-lg rounded-3">
+                                <img src="https://developers.google.com/identity/images/g-logo.png" width="20" class="me-2" />
+                                Login with Google
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,97 @@
+﻿@model ProductSystem.BLL.ViewModels.Account.RegisterVM
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-0">Create Account</h2>
+                    <small>Sign up to get started</small>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form asp-action="Register" method="post" novalidate>
+
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <!-- First Name -->
+                        <div class="mb-3">
+                            <label asp-for="FirstName" class="form-label fw-bold"></label>
+                            <input asp-for="FirstName" class="form-control form-control-lg rounded-3" placeholder="Enter your first name" />
+                            <span asp-validation-for="FirstName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-3">
+                            <label asp-for="LastName" class="form-label fw-bold"></label>
+                            <input asp-for="LastName" class="form-control form-control-lg rounded-3" placeholder="Enter your last name" />
+                            <span asp-validation-for="LastName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label fw-bold"></label>
+                            <input asp-for="UserName" class="form-control form-control-lg rounded-3" placeholder="Choose a username" />
+                            <span asp-validation-for="UserName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold"></label>
+                            <input asp-for="Email" class="form-control form-control-lg rounded-3" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-bold"></label>
+                            <input asp-for="Password" class="form-control form-control-lg rounded-3" placeholder="Enter a password" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label fw-bold"></label>
+                            <input asp-for="ConfirmPassword" class="form-control form-control-lg rounded-3" placeholder="Confirm password" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="form-check mb-4">
+                            <input asp-for="IsAgree" class="form-check-input" id="termsCheck" />
+                            <label asp-for="IsAgree" class="form-check-label" for="termsCheck">
+                                I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                        </div>
+
+                        <!-- Register Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3">
+                                Register
+                            </button>
+                        </div>
+
+                        <!-- Login Link -->
+                        <div class="text-center mt-3">
+                            <p class="mb-0">Already have an account? <a asp-action="Login">Login</a></p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

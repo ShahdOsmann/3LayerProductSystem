@@ -1,0 +1,86 @@
+﻿@model ProductSystem.BLL.ViewModels.ProductFormVM
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2 class="text-primary mb-4">Create Product</h2>
+
+<form asp-action="Create"
+      asp-controller="Product"
+      method="post"
+      enctype="multipart/form-data"
+      class="card shadow p-4">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <!-- Title -->
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <!-- Count -->
+    <div class="mb-3">
+        <label asp-for="Count" class="form-label"></label>
+        <input asp-for="Count" class="form-control" type="number" />
+        <span asp-validation-for="Count" class="text-danger"></span>
+    </div>
+
+    <!-- Expiry Date -->
+    <div class="mb-3">
+        <label asp-for="ExpiryDate" class="form-label"></label>
+        <input asp-for="ExpiryDate" class="form-control" type="date" />
+        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+    </div>
+@* 
+    <!-- Image Upload -->
+    <div class="mb-3">
+        <label asp-for="Image" class="form-label">Product Image</label>
+        <input asp-for="Image" class="form-control" type="file" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+ *@
+    <!-- Category -->
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId"
+                asp-items="ViewBag.Categories"
+                class="form-select">
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">
+            <i class="bi bi-check-circle"></i> Create
+        </button>
+
+        <a asp-action="Index"
+           asp-controller="Product"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
